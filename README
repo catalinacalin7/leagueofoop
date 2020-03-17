@@ -1,0 +1,55 @@
+Tema 1 - POO : League of OOP
+Nume, prenume : Calin Catalina
+Grupa, seria : 324CA
+
+Data inceperii temei: 27-10-2017
+Data finalizarii temei: 07-11-2017
+
+
+Mod de lucru:
+
+	Am implementat o clasa parinte "Hero", care a stat la baza tuturor 
+claselor copii, ce reprezentau tipurile de personaje din cadrul jocului : 
+"Pyromancer", "Rogue", "Knight", "Wizard". In clasa "Hero" am declarat
+membrii necesari pentru toate personajele(hp, xp, isDead, level etc.) si, de asemenea, am creat metode pe care le-am folosit(ca 'adaugaXP()') sau suprascris(ca 'toString()') in clasele copii, deci mostenirea
+in implementarea acestei teme a fost foarte de folos. La fel, in "Hero"
+am creat metode care m-au ajutat la executarea luptelor etc.(de exemplu 'move()' - metoda pentru efectuarea miscarilor in fiecare runda) sau 
+metoda 'ceTeren' care returneaza pe ce tip de teren se afla in momentul
+dat jucatorul ce a apelat functia.	
+	
+	In fiecare clasa copil ("Pyromancer" etc.) am adaugat metoda
+'attack' ce calculeaza damage-ul efectuat de atacator asupra personajului
+primit ca parametru, in dependenta de tipul terenului(land modifier) si
+tipul personajului atacat(race modifier). Dupa care, la sfarsit de metoda
+atribui lui hero damage-ul total, care urmeaza a fi scazut din hp-ul
+acestuia. La fel, am creat o metoda totalDamage pentru fiecare tip de
+personaj(cu exceptia Wizard) care calculeaza damage-ul total aplicat
+fara race modifiers.
+
+	Urmatorul pas a fost crearea clasei 'Joc' care a fost baza 
+executarii jocului. Aceasta clasa retine nr de linii a terenului de joc,
+nr de coloane, nr de personaje, nr de runde, lista cu toti jucatorii,
+matricea teren, parametri primiti in urma citirii din fisiere. Aici
+mi-am creat toate metodele necesare pentru executarea jocului, cum ar
+fi adauga jucator in lista, creare teren etc.
+
+	Citirea/scrierea am facut in clasa abstracta Main. Am
+instantiat un joc nou si folosind
+FileSystem am citit toate informatiile din fisiere si le-am introdus 
+in membrii jocului. La parcurgerea fiecarei runde am scazut dotul 
+personajelor, am verificat daca are dreptul de miscare, daca e viu,
+apoi prin parcurgere a vectorului am gasit toti jucatorii ce se aflau
+pe o pozitie si am facut atacurile reciproce. La sfarsit de runda,
+adaug XP daca este cazut si fac levelUp, daca este cazul.
+
+La sfarsit scriu in fisiere in dependenta de starea personajului.
+
+
+
+Problemele intampinate:
+
+	Cea mai mare problema au fost conditiile micute, ce imi scapau din 
+vedere, cand scriam cod, din cauza carora primeam "FAIL" la mai multe teste 
+si ca sa descoper ceconditii am scapat din vedere in implementarea temei, 
+am petrecut mult timp pentru parcurgerea tuturor rundelor pe foaie.
+
